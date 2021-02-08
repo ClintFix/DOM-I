@@ -50,6 +50,8 @@ const ctaImgSrc = document.querySelector('#cta-img');
 const mainContentH4 = document.querySelectorAll('h4');
 const mainContentP = document.querySelectorAll('.main-content .text-content p');
 const middleImg = document.querySelector('#middle-img');
+const contactContent = document.querySelectorAll('.contact p');
+const footerP = document.querySelector('footer p');
 
 //Update Nav Links
 for(let i = 0; i < navLinks.length; i++){ //for loop to assign text to the anchor tags in nav and iterate through site content object
@@ -81,4 +83,12 @@ mainContentP[4].textContent = siteContent['main-content']['vision-content'];
 //middle image
 middleImg.src = siteContent['main-content']['middle-img-src'];
 
+//contact content
+mainContentH4[5].textContent = siteContent['contact']['contact-h4'];
+contactContent[0].textContent = siteContent['contact']['address'];
+contactContent[1].textContent = siteContent['contact']['phone'];
+contactContent[2].textContent = siteContent['contact']['email'];
+
+//footer content
+footerP.textContent = siteContent['footer']['copyright'];
 
