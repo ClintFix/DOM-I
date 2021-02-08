@@ -40,3 +40,9 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+const navLinks = document.querySelectorAll('nav a'); //New array like object that includes all nav links
+for(let i = 0; i < navLinks.length; i++){ //for loop to assign text to the anchor tags in nav and iterate through site content object
+  navLinks[i].textContent = siteContent.nav[`nav-item-${i+1}`];
+}
+console.log(navLinks);
