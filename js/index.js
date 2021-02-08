@@ -42,7 +42,7 @@ const siteContent = {
 
 
 //Creating Selectors
-const navLinks = document.querySelectorAll('nav a'); //New array like object that includes all nav links
+const navLinks = document.querySelectorAll('header nav a'); //New array like object that includes all nav links
 const logoImg = document.querySelector('#logo-img');
 const ctaHeaderText = document.querySelector('.cta-text h1');
 const ctaButtonText = document.querySelector('.cta-text button');
@@ -92,3 +92,16 @@ contactContent[2].textContent = siteContent['contact']['email'];
 //footer content
 footerP.textContent = siteContent['footer']['copyright'];
 
+//change navigation text to green
+navLinks.forEach(item => item.style.color = 'green');
+
+//add items to navigation
+const blogLink = document.createElement('a');
+blogLink.textContent = "Blog";
+blogLink.href = '#';
+document.querySelector('nav').appendChild(blogLink);
+
+const careersLink = document.createElement('a');
+careersLink.textContent = "Careers";
+careersLink.href = '#';
+document.querySelector('nav').prepend(careersLink);
