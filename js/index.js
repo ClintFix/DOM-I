@@ -45,4 +45,12 @@ const navLinks = document.querySelectorAll('nav a'); //New array like object tha
 for(let i = 0; i < navLinks.length; i++){ //for loop to assign text to the anchor tags in nav and iterate through site content object
   navLinks[i].textContent = siteContent.nav[`nav-item-${i+1}`];
 }
-console.log(navLinks);
+
+//add logo image source to header
+document.querySelector('#logo-img').src = siteContent.nav["img-src"];
+
+// CTA attributes
+document.querySelector('.cta-text h1').textContent = siteContent.cta["h1"]; //add text to h1 header
+document.querySelector('.cta-text button').textContent = siteContent.cta["button"]; //add text to button
+document.querySelector('#cta-img').src = siteContent.cta["img-src"];
+
