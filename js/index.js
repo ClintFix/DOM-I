@@ -36,7 +36,72 @@ const siteContent = {
     "copyright" : "Copyright Great Idea! 2018"
   },
 };
+// // Example: Update the img src for the logo
+// let logo = document.getElementById("logo-img");
+// logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//Creating Selectors
+const navLinks = document.querySelectorAll('header nav a'); //New array like object that includes all nav links
+const logoImg = document.querySelector('#logo-img');
+const ctaHeaderText = document.querySelector('.cta-text h1');
+const ctaButtonText = document.querySelector('.cta-text button');
+const ctaImgSrc = document.querySelector('#cta-img');
+const mainContentH4 = document.querySelectorAll('h4');
+const mainContentP = document.querySelectorAll('.main-content .text-content p');
+const middleImg = document.querySelector('#middle-img');
+const contactContent = document.querySelectorAll('.contact p');
+const footerP = document.querySelector('footer p');
+
+//Update Nav Links
+for(let i = 0; i < navLinks.length; i++){ //for loop to assign text to the anchor tags in nav and iterate through site content object
+  navLinks[i].textContent = siteContent.nav[`nav-item-${i+1}`];
+}
+
+//add logo image source to header
+logoImg.src = siteContent.nav["img-src"];
+
+// CTA attributes
+ctaHeaderText.textContent = siteContent.cta["h1"]; //add text to h1 header
+ctaButtonText.textContent = siteContent.cta["button"]; //add text to button
+ctaImgSrc.src = siteContent.cta["img-src"];
+
+// Main Content Headers
+mainContentH4[0].textContent = siteContent["main-content"]["features-h4"];
+mainContentH4[1].textContent = siteContent["main-content"]["about-h4"];
+mainContentH4[2].textContent = siteContent["main-content"]["services-h4"];
+mainContentH4[3].textContent = siteContent["main-content"]["product-h4"];
+mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
+
+// Main Content Paragraphs
+mainContentP[0].textContent = siteContent['main-content']['features-content'];
+mainContentP[1].textContent = siteContent['main-content']['about-content'];
+mainContentP[2].textContent = siteContent['main-content']['services-content'];
+mainContentP[3].textContent = siteContent['main-content']['product-content'];
+mainContentP[4].textContent = siteContent['main-content']['vision-content'];
+
+//middle image
+middleImg.src = siteContent['main-content']['middle-img-src'];
+
+//contact content
+mainContentH4[5].textContent = siteContent['contact']['contact-h4'];
+contactContent[0].textContent = siteContent['contact']['address'];
+contactContent[1].textContent = siteContent['contact']['phone'];
+contactContent[2].textContent = siteContent['contact']['email'];
+
+//footer content
+footerP.textContent = siteContent['footer']['copyright'];
+
+//change navigation text to green
+navLinks.forEach(item => item.style.color = 'green');
+
+//add items to navigation
+const blogLink = document.createElement('a');
+blogLink.textContent = "Blog";
+blogLink.href = '#';
+document.querySelector('nav').appendChild(blogLink);
+
+const careersLink = document.createElement('a');
+careersLink.textContent = "Careers";
+careersLink.href = '#';
+document.querySelector('nav').prepend(careersLink);
